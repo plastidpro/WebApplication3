@@ -1,0 +1,70 @@
+﻿@model WebApplication3.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>UserViewModel</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.User.ID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.User.ID)
+            @Html.ValidationMessageFor(model => model.User.ID)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.User.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.User.Name)
+            @Html.ValidationMessageFor(model => model.User.Name)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.User.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.User.Password)
+            @Html.ValidationMessageFor(model => model.User.Password)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.User.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.User.Email)
+            @Html.ValidationMessageFor(model => model.User.Email)
+        </div>
+        <ul>
+            @foreach (var g in Model.AllGroups)
+            {
+                <li>
+                    <input type="checkbox" 
+
+                           name="SelectedGroups" value="@g.ID" id="@g.ID"
+
+                           @{if (Model.SelectedGroups.Contains(g.ID)) 
+
+                             { <text> checked='checked' </text>  } } />
+                    <label for="@g.ID">@g.Name</label>
+                </li>
+            }
+        </ul>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    

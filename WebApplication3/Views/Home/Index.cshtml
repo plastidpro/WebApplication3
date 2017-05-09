@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+
+<!Doctype html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <link type="text/css" rel="stylesheet" href="../../Content/Site.css"/>
+    <title>Книжный магазин</title>
+</head>
+<body>
+<div>
+    <h3> Распродажа книг </h3>
+    <table>
+        <tr>
+            <td>Название книги</td>
+            <td>Автор</td>
+            <td>
+                <p>Цена</p></td>
+        </tr>
+        @foreach (var b in ViewBag.Books)
+        {
+            <tr>
+                <td><p>@b.Name</p></td>
+                <td><p>@b.Author</p></td>
+                <td><p>@b.Price</p></td>
+                <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+            </tr>
+        }
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Buy</title>
+</head>
+<body>
+<div>
+    <h6> Форма оформления покупки </h6>
+    <form method="post" action="">
+        <input type="hidden" value="@ViewBag.BookId" name="BookId"/>
+        <table>
+            <tr>
+                <td>
+                    <p> Введите своё имя </p>
+                </td>
+                <td>
+                    <input type="text" name="Person"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p> Введите адрес: </p>
+                </td>
+                <td>
+                    <input type="text" name="Address"/>
+                </td>
+            </tr>
+            <tr><td><p><input type="submit" value="Отправить"/> </p></td> </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
